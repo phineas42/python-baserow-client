@@ -58,6 +58,7 @@ class TableField:
   name: str
   order: int
   primary: bool
+  read_only: bool
 
 
 @dataclasses.dataclass

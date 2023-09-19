@@ -194,8 +194,14 @@ class BaserowClient(BaseClient):
   def create_database_table_row(self, table_id: int, record: t.Dict[str, t.Any]) -> t.Dict[str, t.Any]:
     return self._request('POST', f'/api/database/rows/table/{table_id}/', json=record).json()
 
+  def batch_create_database_table_rows(self, table_id: int, records: t.List[t.Dict[str, t.Any]]) -> t.Dict[str, t.List[t.Dict[str, t.Any]]]:
+      return self._request('POST', f'/api/database/rows/table/{table_id}/batch/', json=records).json()
+
   def update_database_table_row(self, table_id: int, row_id: int, record: t.Dict[str, t.Any]) -> t.Dict[str, t.Any]:
     return self._request('PATCH', f'/api/database/rows/table/{table_id}/{row_id}/', json=record).json()
+
+  def batch_update_database_table_rows(self, table_id: int, identified_records: t.List[t.Dict[str, t.Any]]) -> t.Dict[str, t.List[t.Dict[str, t.Any]]]:
+    return self._request('PATCH', f'/api/database/rows/table/{table_id}/batch/', json=identified_records).json()
 
   def get_database_table_row(self, table_id: int, row_id: int) -> t.Dict[str, t.Any]:
     return self._request('GET', f'/api/database/rows/table/{table_id}/{row_id}/').json()

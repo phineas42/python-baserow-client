@@ -1,0 +1,5 @@
+[[entries]]
+id = "7c67ca2a-2166-42bb-9f80-d8b0e75f17d7"
+type = "improvement"
+description = "Roll-in @xiamaz fieldtypes. Add last_modified TableField; Add read_only property to TableField type; Implement batch_create_database_table_rows and batch_update_database_table_rows API calls"
+author = "@phineas42"

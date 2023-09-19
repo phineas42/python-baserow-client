@@ -39,6 +39,7 @@ class NumberTableField(TableField):
   number_negative: bool
   number_type: NumberType
 
+
 @Union.register(TableField, 'date')
 @dataclasses.dataclass
 class DateTableField(TableField):
@@ -48,6 +49,15 @@ class DateTableField(TableField):
   date_show_tzinfo: bool
   date_time_format: str
 
+
+@Union.register(TableField, 'last_modified')
+@dataclasses.dataclass
+class LastModifiedTableField(TableField):
+  date_force_timezone: str
+  date_format: str
+  date_include_time: bool
+  date_show_tzinfo: bool
+  date_time_format: str
 
 @Union.register(TableField, 'single_select')
 @dataclasses.dataclass
